@@ -85,6 +85,13 @@ left: 0;
     right: 50px;
 height: 100px;
 width: 100px;
+@media (max-width: 767.98px) {
+  top: -10px;
+    right: -20px;
+    margin-right: -5px;
+height: 70px;
+width: 70px;
+}
 border-radius: 50%;
 background-color: #fff;
 text-align: center;
@@ -103,6 +110,9 @@ z-index: 99;
     height: 3px;
 width: 50px;
 background-color: black;
+@media (max-width: 767.98px) {
+  margin-top: 35px;
+}
 }
 &_icon::after {
     position: absolute;
@@ -344,18 +354,23 @@ text-transform: uppercase;
 
   .card_background::after {
     content: "";
+
+    z-index: -1;
     position: absolute;
-    top: -.75%;
-    left: -.75%;
-  z-index: -1;
-    height: 101.5%;
-    width: 101.5%;
-    background-image: linear-gradient(120deg, yellow 25%, red 50%, yellow 75%, red 100%);
-    background-size: 330%;
-    box-shadow: 0 5rem 8rem rgba(0, 0, 0, 0.308);
-    animation-name: back;
-    animation-duration: 5.5s;
-    animation-iteration-count: infinite;
+
+top: -2.5%;
+left: -2.5%;
+background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+filter: blur(1em);
+background-position: 0 0 ;
+    height: 105%;
+    width: 105%;
+    -webkit-animation: animatedgradient 3s ease alternate infinite;
+    animation: animatedgradient 3s ease alternate infinite;
+background-size: 300% 300%;
+    transform: skewX(0deg);
+transition: all 5s;
+
   }
 
 .card_original {
@@ -435,27 +450,28 @@ text-transform: uppercase;
   .card_original:hover .card__side-back {
     transform: rotateY(0);
     transition: all .8s ease-out; }
-@keyframes back {
-    0% {
+    @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 50% 50%;
+      }
+      100% {
+          background-position: 100% 50%;
+      }
+  }
 
-      background-position: 0% 0%;
-    }
-    25% {
-
-      background-position: 75% 75%;
-    }
-    50% {
-
-      background-position: 150% 150%;
-    }
-    75% {
-
-      background-position: 225% 225%;
-    }
-    100% {
-
-      background-position: 300% 300%;
-    }
+  @-webkit-keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 50% 50%;
+      }
+      100% {
+          background-position: 100% 50%;
+      }
   }
 
   @keyframes before {
